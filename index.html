@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Jossy 🌻❤️</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -16,284 +18,231 @@ body{
     min-height:100vh;
     display:flex;
     flex-direction:column;
-    align-items:center;
     justify-content:center;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#fffaf0,#fcebb3,#f8d767);
+    align-items:center;
     overflow:hidden;
-}
 
-h1,.love-message{
-    color:#8c5b00;
-    text-align:center;
-    text-shadow:1px 1px 4px rgba(255,255,255,.8);
-    animation:textMove 3s ease-in-out infinite;
-}
+    font-family:Arial,sans-serif;
 
-h1{
-    margin-bottom:10px;
-}
-
-.love-message{
-    margin-top:15px;
-    font-size:20px;
-    font-weight:bold;
-}
-
-@keyframes textMove{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-6px);}
+    background:linear-gradient(
+        135deg,
+        #fff8dc,
+        #ffe082,
+        #ffd54f
+    );
 }
 
 .hearts{
     position:fixed;
     inset:0;
     pointer-events:none;
+    z-index:0;
 }
 
 .heart{
     position:absolute;
-    font-size:24px;
-    color:rgba(220,20,60,.6);
-    animation:floatHeart 8s linear infinite;
+    animation:floatHeart linear infinite;
+    opacity:.8;
 }
 
 @keyframes floatHeart{
+
     0%{
-        transform:translateY(100vh);
+        transform:
+        translateY(110vh)
+        translateX(0);
         opacity:0;
     }
-    20%,80%{
+
+    10%{
         opacity:1;
     }
+
+    50%{
+        transform:
+        translateY(50vh)
+        translateX(-30px);
+    }
+
     100%{
-        transform:translateY(-120px);
+        transform:
+        translateY(-120px)
+        translateX(40px);
         opacity:0;
     }
+
+}
+
+h1{
+    text-align:center;
+    color:#8c5b00;
+
+    margin-bottom:20px;
+
+    z-index:10;
 }
 
 .bouquet{
     position:relative;
-    width:550px;
-    height:500px;
-    animation:sway 4s ease-in-out infinite;
-    transform-origin:center bottom;
+    width:320px;
+    height:320px;
+    z-index:10;
 }
-
-@keyframes sway{
-    0%,100%{transform:rotate(-2deg);}
-    50%{transform:rotate(2deg);}
-}
-
-.wrapper{
-    position:absolute;
-    width:500px;
-    height:420px;
-    left:25px;
-    top:30px;
-    background:linear-gradient(145deg,
-    rgba(245,205,215,.95),
-    rgba(220,170,180,.95));
-    clip-path:polygon(
-        50% 100%,
-        0% 25%,
-        12% 0%,
-        50% 15%,
-        88% 0%,
-        100% 25%
-    );
-    z-index:1;
-}
-
-.stem{
-    position:absolute;
-    width:6px;
-    background:#2e7d32;
-    border-radius:10px;
-    z-index:2;
-}
-
-.s1{height:240px;left:272px;top:120px;}
-.s2{height:240px;left:272px;top:120px;transform:rotate(18deg);}
-.s3{height:240px;left:272px;top:120px;transform:rotate(-18deg);}
-.s4{height:200px;left:272px;top:180px;transform:rotate(8deg);}
-.s5{height:200px;left:272px;top:180px;transform:rotate(-8deg);}
-
-.flower-box{
-    position:absolute;
-    width:100px;
-    height:100px;
-    z-index:5;
-}
-
-.f1{top:20px;left:225px;transform:scale(1.1);}
-.f2{top:80px;left:140px;}
-.f3{top:80px;left:225px;}
-.f4{top:80px;left:310px;}
-.f5{top:160px;left:95px;}
-.f6{top:160px;left:180px;}
-.f7{top:160px;left:265px;}
-.f8{top:160px;left:350px;}
-.f9{top:240px;left:180px;}
-.f10{top:240px;left:265px;}
 
 .flower{
-    position:relative;
-    width:100px;
-    height:100px;
+    position:absolute;
+    font-size:70px;
 }
 
-.petal{
-    position:absolute;
-    width:16px;
-    height:48px;
-    background:linear-gradient(to top,#ff9800,#ffd700);
-    border-radius:50%;
-    left:42px;
-    top:0;
-    transform-origin:center 50px;
-}
+.f1{top:20px;left:120px;}
+.f2{top:90px;left:40px;}
+.f3{top:90px;left:120px;}
+.f4{top:90px;left:200px;}
+.f5{top:160px;left:0;}
+.f6{top:160px;left:80px;}
+.f7{top:160px;left:160px;}
+.f8{top:160px;left:240px;}
 
-.core{
-    position:absolute;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:#5d4037;
-    border:4px solid #8d6e63;
-    left:32px;
-    top:32px;
-    z-index:2;
-}
-
-.ribbon{
-    position:absolute;
-    width:45px;
-    height:22px;
-    background:#d32f2f;
-    left:253px;
-    bottom:80px;
-    border-radius:5px;
-    z-index:6;
+.love-message{
+    margin-top:15px;
+    font-size:22px;
+    font-weight:bold;
+    color:#8c5b00;
+    text-align:center;
+    z-index:10;
 }
 
 #musicBtn{
-    margin-top:15px;
-    padding:12px 22px;
-    border:none;
-    border-radius:30px;
+
+    margin-top:20px;
+
     background:#d32f2f;
     color:white;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:30px;
+
     font-size:16px;
     font-weight:bold;
+
     cursor:pointer;
+
+    z-index:10;
 }
 
 #musicBtn:hover{
     background:#b71c1c;
 }
+
+#youtubePlayer{
+    position:absolute;
+    left:-9999px;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="hearts">
-    <div class="heart" style="left:10%">❤️</div>
-    <div class="heart" style="left:25%">❤️</div>
-    <div class="heart" style="left:40%">❤️</div>
-    <div class="heart" style="left:55%">❤️</div>
-    <div class="heart" style="left:75%">❤️</div>
-    <div class="heart" style="left:90%">❤️</div>
-</div>
+<div class="hearts" id="hearts"></div>
 
 <h1>
-🌻 Feliz 21 de Setiembre mi amor ❤️<br>
+🌻 Feliz 21 de Setiembre mi amor ❤️ <br>
 Jossy 🐥
 </h1>
 
 <div class="bouquet">
 
-<div class="wrapper"></div>
-
-<div class="stem s1"></div>
-<div class="stem s2"></div>
-<div class="stem s3"></div>
-<div class="stem s4"></div>
-<div class="stem s5"></div>
-
-<div class="flower-box f1"><div class="flower"></div></div>
-<div class="flower-box f2"><div class="flower"></div></div>
-<div class="flower-box f3"><div class="flower"></div></div>
-<div class="flower-box f4"><div class="flower"></div></div>
-<div class="flower-box f5"><div class="flower"></div></div>
-<div class="flower-box f6"><div class="flower"></div></div>
-<div class="flower-box f7"><div class="flower"></div></div>
-<div class="flower-box f8"><div class="flower"></div></div>
-<div class="flower-box f9"><div class="flower"></div></div>
-<div class="flower-box f10"><div class="flower"></div></div>
-
-<div class="ribbon"></div>
+<div class="flower f1">🌻</div>
+<div class="flower f2">🌻</div>
+<div class="flower f3">🌻</div>
+<div class="flower f4">🌻</div>
+<div class="flower f5">🌻</div>
+<div class="flower f6">🌻</div>
+<div class="flower f7">🌻</div>
+<div class="flower f8">🌻</div>
 
 </div>
 
 <div class="love-message">
-    Gracias por hacer florecer mi corazón cada día 🌻❤️
+Gracias por hacer florecer mi corazón cada día 🌻❤️
 </div>
 
 <button id="musicBtn">
-    🎵 Reproducir
+🎵 Reproducir
 </button>
 
-https://www.youtube.com/embed/GqYw2N3Mu9I?enablejsapi=1
+https://www.youtube.com/embed/gv63CGCx6vg?enablejsapi=1
 </iframe>
 
 https://www.youtube.com/iframe_apiscript>
 
 <script>
 
-document.querySelectorAll('.flower').forEach(flower => {
+const heartsContainer =
+document.getElementById("hearts");
 
-    for(let i = 0; i < 16; i++) {
+for(let i=0;i<50;i++){
 
-        const petal = document.createElement('div');
-        petal.classList.add('petal');
-        petal.style.transform = `rotate(${i * 22.5}deg)`;
-        flower.appendChild(petal);
+    const heart =
+    document.createElement("div");
 
-    }
+    heart.className = "heart";
 
-    const core = document.createElement('div');
-    core.classList.add('core');
-    flower.appendChild(core);
+    heart.innerHTML = "❤️";
 
-});
+    heart.style.left =
+    Math.random()*100+"%";
+
+    heart.style.fontSize =
+    (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration =
+    (5+Math.random()*10)+"s";
+
+    heart.style.animationDelay =
+    (Math.random()*8)+"s";
+
+    heartsContainer.appendChild(heart);
+
+}
 
 let player;
 let reproduciendo = false;
 
-function onYouTubeIframeAPIReady() {
+function onYouTubeIframeAPIReady(){
 
     player = new YT.Player('youtubePlayer');
 
 }
 
-const btn = document.getElementById("musicBtn");
+const btn =
+document.getElementById("musicBtn");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click",()=>{
 
-    if (!player) return;
+    if(!player) return;
 
-    if (!reproduciendo) {
+    if(!reproduciendo){
 
         player.playVideo();
-        btn.textContent = "⏸️ Pausar";
-        reproduciendo = true;
 
-    } else {
+        btn.textContent =
+        "⏸️ Pausar";
+
+        reproduciendo=true;
+
+    }else{
 
         player.pauseVideo();
-        btn.textContent = "🎵 Reproducir";
-        reproduciendo = false;
+
+        btn.textContent =
+        "🎵 Reproducir";
+
+        reproduciendo=false;
 
     }
 
