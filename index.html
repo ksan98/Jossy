@@ -237,50 +237,63 @@ Jossy 🐥
 </div>
 
 <div class="love-message">
-Gracias por hacer florecer mi corazón cada día 🌻❤️
+    Gracias por hacer florecer mi corazón cada día 🌻❤️
 </div>
 
 <button id="musicBtn">
-🎵 Reproducir
+    🎵 Reproducir
 </button>
 
-<audio id="bgMusic" preload="auto" loop>
-    flores-amarillas.mp3
-</audio>
+https://www.youtube.com/embed/GqYw2N3Mu9I?enablejsapi=1
+</iframe>
+
+https://www.youtube.com/iframe_apiscript>
 
 <script>
 
 document.querySelectorAll('.flower').forEach(flower => {
 
-    for(let i=0;i<16;i++){
+    for(let i = 0; i < 16; i++) {
 
-        const petal=document.createElement('div');
+        const petal = document.createElement('div');
         petal.classList.add('petal');
-        petal.style.transform=`rotate(${i*22.5}deg)`;
+        petal.style.transform = `rotate(${i * 22.5}deg)`;
         flower.appendChild(petal);
 
     }
 
-    const core=document.createElement('div');
+    const core = document.createElement('div');
     core.classList.add('core');
     flower.appendChild(core);
 
 });
 
-const music=document.getElementById("bgMusic");
-const btn=document.getElementById("musicBtn");
+let player;
+let reproduciendo = false;
 
-btn.addEventListener("click",()=>{
+function onYouTubeIframeAPIReady() {
 
-    if(music.paused){
+    player = new YT.Player('youtubePlayer');
 
-        music.play();
-        btn.textContent="⏸️ Pausar";
+}
 
-    }else{
+const btn = document.getElementById("musicBtn");
 
-        music.pause();
-        btn.textContent="🎵 Reproducir";
+btn.addEventListener("click", () => {
+
+    if (!player) return;
+
+    if (!reproduciendo) {
+
+        player.playVideo();
+        btn.textContent = "⏸️ Pausar";
+        reproduciendo = true;
+
+    } else {
+
+        player.pauseVideo();
+        btn.textContent = "🎵 Reproducir";
+        reproduciendo = false;
 
     }
 
