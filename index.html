@@ -268,9 +268,7 @@ Jossy 🐥
     🎵 Reproducir
 </button>
 
-<audio id="bgMusic" loop preload="auto">
-    ./flores-amarillas.mp3
-</audio>
+flores-amarillas.mp3</audio>
 
 <script>
 
@@ -294,29 +292,29 @@ document.querySelectorAll('.flower').forEach(flower => {
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
 
-btn.onclick = () => {
+btn.addEventListener("click", () => {
 
-    if(music.paused){
+    if (music.paused) {
 
         music.play()
         .then(() => {
-            btn.innerHTML = "⏸️ Pausar";
+            btn.textContent = "⏸️ Pausar";
         })
-        .catch(err => {
-            console.log(err);
-            alert("Error reproduciendo el audio");
+        .catch(error => {
+            console.error(error);
+            alert("Error: " + error.message);
         });
 
-    }else{
+    } else {
 
         music.pause();
-        btn.innerHTML = "🎵 Reproducir";
+        btn.textContent = "🎵 Reproducir";
 
     }
 
-};
+});
 
 </script>
-    
+
 </body>
 </html>
