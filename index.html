@@ -268,16 +268,15 @@ Jossy 🐥
     🎵 Reproducir
 </button>
 
-<audio id="bgMusic" loop>
-    flores-amarillas.mp3
-    Tu navegador no soporta audio HTML5.
+<audio id="bgMusic" loop preload="auto">
+    ./flores-amarillas.mp3
 </audio>
 
 <script>
 
 document.querySelectorAll('.flower').forEach(flower => {
 
-    for(let i = 0; i < 16; i++) {
+    for(let i = 0; i < 16; i++){
 
         const petal = document.createElement('div');
         petal.classList.add('petal');
@@ -295,33 +294,29 @@ document.querySelectorAll('.flower').forEach(flower => {
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
 
-btn.addEventListener("click", async () => {
+btn.onclick = () => {
 
-    try {
+    if(music.paused){
 
-        if (music.paused) {
-
-            await music.play();
+        music.play()
+        .then(() => {
             btn.innerHTML = "⏸️ Pausar";
+        })
+        .catch(err => {
+            console.log(err);
+            alert("Error reproduciendo el audio");
+        });
 
-        } else {
+    }else{
 
-            music.pause();
-            btn.innerHTML = "🎵 Reproducir";
-
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("No se pudo reproducir la canción.");
+        music.pause();
+        btn.innerHTML = "🎵 Reproducir";
 
     }
 
-});
+};
 
 </script>
-
+    
 </body>
 </html>
