@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Jossy 🌻❤️</title>
 
 <style>
@@ -15,13 +17,20 @@
 
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#fff8dc,#ffe082,#ffd54f);
-    font-family:Arial,sans-serif;
     display:flex;
     flex-direction:column;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     overflow:hidden;
+
+    font-family:Arial,sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #fff8dc,
+        #ffe082,
+        #ffd54f
+    );
 }
 
 .hearts{
@@ -34,21 +43,32 @@ body{
 .heart{
     position:absolute;
     animation:floatHeart linear infinite;
+    opacity:.8;
 }
 
 @keyframes floatHeart{
 
     0%{
-        transform:translateY(110vh) translateX(0);
+        transform:
+        translateY(110vh)
+        translateX(0);
         opacity:0;
     }
 
-    20%{
+    10%{
         opacity:1;
     }
 
+    50%{
+        transform:
+        translateY(50vh)
+        translateX(-30px);
+    }
+
     100%{
-        transform:translateY(-120px) translateX(50px);
+        transform:
+        translateY(-120px)
+        translateX(40px);
         opacity:0;
     }
 
@@ -57,36 +77,35 @@ body{
 h1{
     text-align:center;
     color:#8c5b00;
-    z-index:10;
+
     margin-bottom:20px;
+
+    z-index:10;
 }
 
 .bouquet{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    position:relative;
+    width:320px;
+    height:320px;
     z-index:10;
 }
 
 .flower{
+    position:absolute;
     font-size:70px;
-    animation:sway 3s ease-in-out infinite;
 }
 
-@keyframes sway{
-
-    0%,100%{
-        transform:rotate(-5deg);
-    }
-
-    50%{
-        transform:rotate(5deg);
-    }
-
-}
+.f1{top:20px;left:120px;}
+.f2{top:90px;left:40px;}
+.f3{top:90px;left:120px;}
+.f4{top:90px;left:200px;}
+.f5{top:160px;left:0;}
+.f6{top:160px;left:80px;}
+.f7{top:160px;left:160px;}
+.f8{top:160px;left:240px;}
 
 .love-message{
-    margin-top:20px;
+    margin-top:15px;
     font-size:22px;
     font-weight:bold;
     color:#8c5b00;
@@ -98,12 +117,12 @@ h1{
 
     margin-top:20px;
 
-    border:none;
-
     background:#d32f2f;
     color:white;
 
-    padding:14px 24px;
+    border:none;
+
+    padding:14px 25px;
 
     border-radius:30px;
 
@@ -119,27 +138,34 @@ h1{
     background:#b71c1c;
 }
 
+#youtubePlayer{
+    position:absolute;
+    left:-9999px;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="hearts" id="hearts"></div>
 
 <h1>
-🌻 Feliz 21 de Setiembre mi amor ❤️<br>
+🌻 Feliz 21 de Setiembre mi amor ❤️ <br>
 Jossy 🐥
 </h1>
 
 <div class="bouquet">
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌻</div>
+
+<div class="flower f1">🌻</div>
+<div class="flower f2">🌻</div>
+<div class="flower f3">🌻</div>
+<div class="flower f4">🌻</div>
+<div class="flower f5">🌻</div>
+<div class="flower f6">🌻</div>
+<div class="flower f7">🌻</div>
+<div class="flower f8">🌻</div>
+
 </div>
 
 <div class="love-message">
@@ -150,49 +176,80 @@ Gracias por hacer florecer mi corazón cada día 🌻❤️
 🎵 Reproducir
 </button>
 
-<audio id="bgMusic" src="flores-amarillas.mp3" loop></audio>
+https://www.youtube.com/embed/gv63CGCx6vg?enablejsapi=1
+</iframe>
+
+https://www.youtube.com/iframe_apiscript>
 
 <script>
 
-// Corazones aleatorios
+const heartsContainer =
+document.getElementById("hearts");
 
-const hearts = document.getElementById("hearts");
+for(let i=0;i<50;i++){
 
-for(let i=0;i<60;i++){
+    const heart =
+    document.createElement("div");
 
-    const heart = document.createElement("div");
+    heart.className = "heart";
 
-    heart.className="heart";
-    heart.innerHTML="❤️";
+    heart.innerHTML = "❤️";
 
-    heart.style.left=Math.random()*100+"%";
-    heart.style.fontSize=(15+Math.random()*25)+"px";
-    heart.style.animationDuration=(5+Math.random()*10)+"s";
-    heart.style.animationDelay=(Math.random()*10)+"s";
+    heart.style.left =
+    Math.random()*100+"%";
 
-    hearts.appendChild(heart);
+    heart.style.fontSize =
+    (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration =
+    (5+Math.random()*10)+"s";
+
+    heart.style.animationDelay =
+    (Math.random()*8)+"s";
+
+    heartsContainer.appendChild(heart);
 
 }
 
-// Música
+let player;
+let reproduciendo = false;
 
-const music=document.getElementById("bgMusic");
-const btn=document.getElementById("musicBtn");
+function onYouTubeIframeAPIReady(){
 
-document.body.addEventListener("click",()=>{
+    player = new YT.Player('youtubePlayer');
 
-    if(music.paused){
+}
 
-        music.play().catch(()=>{});
-
-        btn.textContent="⏸️ Pausar";
-    }
-
-},{once:true});
+const btn =
+document.getElementById("musicBtn");
 
 btn.addEventListener("click",()=>{
 
-    if(music.paused){
+    if(!player) return;
 
-        music.play
-        
+    if(!reproduciendo){
+
+        player.playVideo();
+
+        btn.textContent =
+        "⏸️ Pausar";
+
+        reproduciendo=true;
+
+    }else{
+
+        player.pauseVideo();
+
+        btn.textContent =
+        "🎵 Reproducir";
+
+        reproduciendo=false;
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
