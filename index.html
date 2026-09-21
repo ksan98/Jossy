@@ -261,22 +261,23 @@ Jossy 🐥
 </div>
 
 <div class="love-message">
-Gracias por hacer florecer mi corazón cada día 🌻❤️
+    Gracias por hacer florecer mi corazón cada día 🌻❤️
 </div>
 
 <button id="musicBtn">
-🎵 Reproducir
+    🎵 Reproducir
 </button>
 
 <audio id="bgMusic" loop>
     flores-amarillas.mp3
+    Tu navegador no soporta audio HTML5.
 </audio>
 
 <script>
 
 document.querySelectorAll('.flower').forEach(flower => {
 
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < 16; i++) {
 
         const petal = document.createElement('div');
         petal.classList.add('petal');
@@ -296,21 +297,21 @@ const btn = document.getElementById("musicBtn");
 
 btn.addEventListener("click", async () => {
 
-    try{
+    try {
 
-        if(music.paused){
+        if (music.paused) {
 
             await music.play();
             btn.innerHTML = "⏸️ Pausar";
 
-        }else{
+        } else {
 
             music.pause();
             btn.innerHTML = "🎵 Reproducir";
 
         }
 
-    }catch(error){
+    } catch (error) {
 
         console.error(error);
 
